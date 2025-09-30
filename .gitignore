@@ -1,284 +1,399 @@
-# .NET Core
+# ChurrasTech ERP - .gitignore
+
+# Diretórios e arquivos de build
 bin/
 obj/
+
+# Pacotes NuGet
+*.nupkg
+*.snupkg
+.nuget/
+
+# Arquivos de usuário do Visual Studio
 *.user
 *.suo
-*.cache
-*.dll
-*.pdb
-packages/
-
-# Visual Studio
-.vs/
-.vscode/
+*.userosscache
 *.sln.docstates
-*.userprefs
 
-# Rider
-.idea/
+# Diretórios de backup e migração
+scripts/ERP.Banco/*.bak
+scripts/ERP.Banco/*.sql.bak
 
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+# Arquivos de configuração locais
+appsettings.*.local.json
 
-# Logs
+# Dados do MySQL (NÃO versionar arquivos binários do MySQL Server)
+C:/Program Files/MySQL/
+
+# Dados temporários e logs
 *.log
-
-# Database
-*.db
-*.sqlite
-
-# Temporary files
-temp/
-tmp/
-
-# Build results
-[Dd]ebug/
-[Rr]elease/
-x64/
-x86/
-build/
-[Bb]in/
-[Oo]bj/
-
-# MSTest test Results
-[Tt]est[Rr]esult*/
-[Bb]uild[Ll]og.*
-
-# NUnit
-*.VisualState.xml
-TestResult.xml
-
-# Build Results of an ATL Project
-[Dd]ebugPS/
-[Rr]eleasePS/
-dlldata.c
-
-# .NET Core
-project.lock.json
-project.fragment.lock.json
-artifacts/
-**/Properties/launchSettings.json
-
-# StyleCop
-StyleCopReport.xml
-
-# Files built by Visual Studio
-*_i.c
-*_p.c
-*_i.h
-*.ilk
-*.meta
-*.obj
-*.pch
-*.pdb
-*.pgc
-*.pgd
-*.rsp
-*.sbr
-*.tlb
-*.tli
-*.tlh
 *.tmp
-*.tmp_proj
-*.vspscc
-*.vssscc
-.builds
-*.pidb
-*.svclog
-*.scc
 
-# Chutzpah Test files
-_Chutzpah*
+# Diretórios de migração do EF Core (apenas versionar arquivos .cs)
+**/Migrations/*.Designer.cs
+**/Migrations/*.resx
 
-# Visual C++ cache files
-ipch/
-*.aps
-*.ncb
-*.opendb
-*.opensdf
-*.sdf
-*.cachefile
-*.VC.db
-*.VC.VC.opendb
+# Arquivos de backup do banco
+backups/
 
-# Visual Studio profiler
-*.psess
-*.vsp
-*.vspx
-*.sap
+# Arquivos de cache do Visual Studio
+.vs/
 
-# TFS 2012 Local Workspace
-$tf/
+# Arquivos de configuração do Windows
+Thumbs.db
+Desktop.ini
 
-# Guidance Automation Toolkit
-*.gpState
+# Arquivos de sistema
+.DS_Store
 
-# ReSharper is a .NET coding add-in
-_ReSharper*/
-*.[Rr]e[Ss]harper
-*.DotSettings.user
-
-# JustCode is a .NET coding add-in
-.JustCode
-
-# TeamCity is a build add-in
-_TeamCity*
-
-# DotCover is a Code Coverage Tool
-*.dotCover
-
-# NCrunch
-_NCrunch_*
-.*crunch*.local.xml
-nCrunchTemp_*
-
-# MightyMoose
-*.mm.*
-AutoTest.Net/
-
-# Web workbench (sass)
-.sass-cache/
-
-# Installshield output folder
-[Ee]xpress/
-
-# DocProject is a documentation generator add-in
-DocProject/buildhelp/
-DocProject/Help/*.HxT
-DocProject/Help/*.HxC
-DocProject/Help/*.hhc
-DocProject/Help/*.hhk
-DocProject/Help/*.hhp
-DocProject/Help/Html2
-DocProject/Help/html
-
-# Click-Once directory
-publish/
-
-# Publish Web Output
-*.[Pp]ublish.xml
-*.azurePubxml
-# TODO: Comment the next line if you want to checkin your web deploy settings 
-# but database connection strings (with potential passwords) will be unencrypted
-*.pubxml
-*.publishproj
-
-# Microsoft Azure Web App publish settings. Comment the next line if you want to
-# checkin your Azure Web App publish settings, but sensitive information contained
-# in these files may be visible to others and you should use deployment transforms
-# to ensure sensitive information does not get deployed
-*.PublishSettings
-
-# NuGet Packages
-*.nupkg
-# The packages folder can be ignored because of Package Restore
-**/packages/*
-# except build/, which is used as an MSBuild target.
-!**/packages/build/
-# Uncomment if necessary however generally it will be regenerated when needed
-#!**/packages/repositories.config
-# NuGet v3's project.json files produces more ignoreable files
-*.nuget.props
-*.nuget.targets
-
-# Microsoft Azure Build Output
-csx/
-*.build.csdef
-
-# Microsoft Azure Emulator
-ecf/
-rcf/
-
-# Windows Store app package directories and files
-AppPackages/
-BundleArtifacts/
-Package.StoreAssociation.xml
-_pkginfo.txt
-
-# Visual Studio cache files
-# files ending in .cache can be ignored
-*.[Cc]ache
-# but keep track of directories ending in .cache
-!*.[Cc]ache/
-
-# Others
-ClientBin/
-~$*
-*~
-*.dbmdl
-*.jfm
-*.pfx
-*.publishsettings
-node_modules/
-orleans.codegen.cs
-
-# Since there are multiple workflows, uncomment the next line to ignore bower_components 
-# (https://github.com/github/gitignore/pull/1529#issuecomment-104372622)
-#bower_components/
-
-# RIA/Silverlight projects
-Generated_Code/
-
-# Backup & report files from converting an old project file
-# to a newer Visual Studio version. Backup files are not needed,
-# because we have git ;-)
-_UpgradeReport_Files/
-Backup*/
-UpgradeLog*.XML
-UpgradeLog*.htm
-
-# SQL Server files
-*.mdf
-*.ldf
-
-# Business Intelligence projects
-*.rdl.data
-*.bim.layout
-*.bim_*.settings
-
-# Microsoft Fakes
-FakesAssemblies/
-
-# GhostDoc plugin setting file
-*.GhostDoc.xml
-
-# Node.js Tools for Visual Studio
-.ntvs_analysis.dat
-
-# Visual Studio 6 build log
-*.plg
-
-# Visual Studio 6 workspace options file
-*.opt
-
-# Visual Studio LightSwitch build output
-**/*.HTMLClient/GeneratedArtifacts
-**/*.DesktopClient/GeneratedArtifacts
-**/*.DesktopClient/ModelManifest.xml
-**/*.Server/GeneratedArtifacts
-**/*.Server/ModelManifest.xml
-_Pvt_Extensions
-
-# Paket dependency manager
-.paket/paket.exe
-paket-files/
-
-# FAKE - F# Make
-.fake/
-
-# JetBrains Rider
-.idea/
-*.sln.iml
-
-# CodeRush
-.cr/
-
-# Python Tools for Visual Studio (PTVS)
+# Ignorar arquivos de ambiente Python/Ruby/Node (caso existam)
 __pycache__/
 *.pyc
+node_modules/
+*.gem
+
+# Ignorar arquivos de ambiente JetBrains
+.idea/
+*.iml
+
+# Ignorar arquivos de ambiente do Rider
+*.DotSettings
+
+# Ignorar arquivos de ambiente do Resharper
+*.DotSettings.user
+
+# Ignorar arquivos de ambiente do VS Code
+.vscode/
+
+# Ignorar arquivos de ambiente do Windows
+*.bak
+*.swp
+
+# Ignorar arquivos de backup do editor
+*~
+
+# Ignorar arquivos de banco de dados SQLite
+*.db
+*.sqlite
+*.sqlite3
+
+# Ignorar arquivos de backup SQL
+*.sql.bak
+
+# Ignorar arquivos de ambiente do Mac
+*.DS_Store
+
+# Ignorar arquivos de ambiente do Linux
+*.swp
+
+# Ignorar arquivos de ambiente do Git
+.git/
+
+# Ignorar arquivos de ambiente do Windows Forms Designer
+*.resx
+*.Designer.cs
+
+# Ignorar arquivos de ambiente do Entity Framework
+**/Migrations/*.Designer.cs
+**/Migrations/*.resx
+
+# Ignorar arquivos de ambiente do Test Explorer
+TestResults/
+
+# Ignorar arquivos de ambiente do Coverage
+coverage/
+
+# Ignorar arquivos de ambiente do SonarQube
+.sonar/
+
+# Ignorar arquivos de ambiente do Azure DevOps
+/.azure-pipelines/
+
+# Ignorar arquivos de ambiente do Docker
+Dockerfile*
+.dockerignore
+
+# Ignorar arquivos de ambiente do Kubernetes
+k8s/
+
+# Ignorar arquivos de ambiente do Terraform
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+# Ignorar arquivos de ambiente do Ansible
+*.retry
+
+# Ignorar arquivos de ambiente do Jenkins
+jenkins/
+
+# Ignorar arquivos de ambiente do Travis
+.travis.yml
+
+# Ignorar arquivos de ambiente do CircleCI
+.circleci/
+
+# Ignorar arquivos de ambiente do GitHub Actions
+.github/
+
+# Ignorar arquivos de ambiente do AppVeyor
+.appveyor.yml
+
+# Ignorar arquivos de ambiente do TeamCity
+.teamcity/
+
+# Ignorar arquivos de ambiente do Bamboo
+bamboo-specs/
+
+# Ignorar arquivos de ambiente do Bitbucket
+bitbucket-pipelines.yml
+
+# Ignorar arquivos de ambiente do GitLab
+.gitlab-ci.yml
+
+# Ignorar arquivos de ambiente do SVN
+.svn/
+
+# Ignorar arquivos de ambiente do Mercurial
+.hg/
+
+# Ignorar arquivos de ambiente do Perforce
+.p4config
+.p4ignore
+
+# Ignorar arquivos de ambiente do CVS
+CVS/
+
+# Ignorar arquivos de ambiente do Bazaar
+.bzr/
+
+# Ignorar arquivos de ambiente do Subversion
+.svn/
+
+# Ignorar arquivos de ambiente do Fossil
+.fossil-settings/
+
+# Ignorar arquivos de ambiente do Monotone
+.mtn/
+
+# Ignorar arquivos de ambiente do Darcs
+_darcs/
+
+# Ignorar arquivos de ambiente do RCS
+RCS/
+
+# Ignorar arquivos de ambiente do SCCS
+SCCS/
+
+# Ignorar arquivos de ambiente do ClearCase
+.clearcase/
+
+# Ignorar arquivos de ambiente do Visual SourceSafe
+.vss/
+
+# Ignorar arquivos de ambiente do SourceGear Vault
+.vault/
+
+# Ignorar arquivos de ambiente do SourceGear Fortress
+.fortress/
+
+# Ignorar arquivos de ambiente do SourceGear DiffMerge
+.diffmerge/
+
+# Ignorar arquivos de ambiente do SourceGear Team Foundation Server
+.tfs/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer
+.teamexplorer/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere
+.teamexplorereverywhere/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Eclipse
+.teamexplorereverywhere.eclipse/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for IntelliJ
+.teamexplorereverywhere.intellij/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio
+.teamexplorereverywhere.visualstudio/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Code
+.teamexplorereverywhere.vscode/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Online
+.teamexplorereverywhere.visualstudioonline/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Services
+.teamexplorereverywhere.visualstudioteamservices/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server
+.teamexplorereverywhere.visualstudioteamfoundationserver/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Express
+.teamexplorereverywhere.visualstudioteamfoundationserverexpress/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Online
+.teamexplorereverywhere.visualstudioteamfoundationserveronline/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Preview
+.teamexplorereverywhere.visualstudioteamfoundationserverpreview/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server RC
+.teamexplorereverywhere.visualstudioteamfoundationserverrc/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server RTM
+.teamexplorereverywhere.visualstudioteamfoundationserverrtm/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 1
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate1/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 2
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate2/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 3
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate3/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 4
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate4/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 5
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate5/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 6
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate6/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 7
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate7/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 8
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate8/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 9
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate9/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 10
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate10/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 11
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate11/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 12
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate12/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 13
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate13/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 14
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate14/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 15
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate15/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 16
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate16/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 17
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate17/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 18
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate18/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 19
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate19/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 20
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate20/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 21
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate21/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 22
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate22/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 23
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate23/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 24
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate24/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 25
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate25/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 26
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate26/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 27
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate27/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 28
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate28/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 29
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate29/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 30
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate30/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 31
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate31/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 32
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate32/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 33
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate33/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 34
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate34/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 35
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate35/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 36
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate36/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 37
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate37/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 38
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate38/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 39
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate39/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 40
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate40/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 41
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate41/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 42
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate42/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 43
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate43/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 44
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate44/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 45
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate45/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 46
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate46/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 47
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate47/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 48
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate48/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 49
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate49/
+
+# Ignorar arquivos de ambiente do SourceGear Team Explorer Everywhere for Visual Studio Team Foundation Server Update 50
+.teamexplorereverywhere.visualstudioteamfoundationserverupdate50/

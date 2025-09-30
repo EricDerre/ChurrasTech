@@ -141,44 +141,99 @@ PWD=
 ### In-Memory (Demo)
 Para demonstração, o sistema usa banco em memória quando MySQL não está disponível.
 
-## Extensões Futuras
+# ChurrasTech ERP - Documentação Completa
 
-### Módulos a Implementar
-- Sistema completo de vendas
-- Gestão de compras
-- Controle de estoque avançado
-- Relatórios gerenciais
-- Sistema de clientes
-- Interface web (Blazor)
-- API REST
+## Regras de Negócio (RN)
+___________________________________________
+• RN01: Todo Produto deve ser cadastrado com nome, descrição, tipo, unidade de medida, valor unitário e se é congelado ou não.
+• RN02: O sistema deve registrar a quantidade em estoque de cada produto. A cada compra, o estoque é aumentado. A cada venda, o estoque é reduzido automaticamente. O sistema deve impedir a venda de produto com estoque insuficiente.
+• RN03: O sistema deve aplicar automaticamente a taxa de rendimento após preparo: frango, linguiça e carne suína → 50%; carne bovina → 40%; costela → 50%. Exemplo: se o cliente pedir 1 kg de coxa assada, o sistema deve abater 2 kg crus do estoque.
+• RN05: Em uma Venda, o sistema deve registrar data, valor total e forma de pagamento obrigatoriamente.
+• RN06: O desconto em um item de venda (valorDesconto) não pode ser maior que o valor total sem desconto.
+• RN07: Cada Compra deve registrar data, produto e quantidade adquirida obrigatoriamente.
+• RN08: Cada ItemCompra deve estar vinculado a uma Compra e a um Produto válidos.
+• RN09: A inclusão de um ItemCompra deve gerar aumento automático no Estoque.
+• RN10: O sistema deve impedir vendas de produtos com estoque insuficiente.
+• RN11: Caso um produto tenha sido comprado em lotes diferentes (ItemCompra), o sistema deve dar baixa do estoque pelo critério FIFO (primeiro que entra, primeiro que sai).
+• RN12: A tabela ItensUnitarioNoEstoque deve permitir rastrear de qual compra veio cada produto no estoque.
 
-### Melhorias Técnicas
-- Windows Forms/WPF interface
-- Autenticação e autorização
-- Logs estruturados
-- Cache de dados
-- Notificações push
-- Integração com PDV
+---
 
-## Testes
+## Regra para Alterações de Estrutura do Banco
+- **Toda alteração de estrutura do banco (criação de tabelas, colunas, etc.) deve ser feita em scripts SQL únicos.**
+- O script deve ter nome fácil de entender, por exemplo: `CriaColCongelado.sql`.
+- Adicione o script na pasta `scripts/ERP.Banco/` e faça commit no repositório.
+- Assim, todos os desenvolvedores podem aplicar as alterações no banco local facilmente.
 
-O sistema inclui testes unitários abrangentes para:
-- Criação de produtos
-- Validação de códigos únicos
-- Busca de produtos
-- Controle de estoque baixo
+---
 
-Execute `dotnet test` para rodar todos os testes.
+## Instalação e Configuração
 
-## Contribuição
+### Requisitos
+- Windows 10 ou superior
+- Visual Studio 2022 (com .NET 9 e Windows Forms)
+- .NET 9 SDK
+- MySQL Server (recomendado: MySQL Workbench)
 
-Este sistema foi desenvolvido seguindo as melhores práticas de:
-- Clean Architecture
-- SOLID Principles
-- Dependency Injection
-- Unit Testing
-- Code Documentation
+### Passo a Passo do Banco de Dados
+1. Instale o MySQL Server e o MySQL Workbench.
+2. Crie os bancos de dados:
+   ```sql
+   CREATE DATABASE ERP_teste;
+   CREATE DATABASE churrastech_prod;
+   ```
+3. Crie o usuário e permissões:
+   ```sql
+   CREATE USER 'DEV'@'localhost' IDENTIFIED BY 'unicid2025';
+   GRANT ALL PRIVILEGES ON ERP_teste.* TO 'DEV'@'localhost';
+   GRANT ALL PRIVILEGES ON churrastech_prod.* TO 'DEV'@'localhost';
+   FLUSH PRIVILEGES;
+   ```
 
-## Licença
+### Compartilhamento de Dados do Banco
+- **Não é recomendado** compartilhar arquivos do diretório `C:\Program Files\MySQL` diretamente pelo GitHub, pois são arquivos binários do servidor e não funcionam para replicação entre ambientes.
+- Para compartilhar dados e estrutura, utilize **migrações do Entity Framework Core** e scripts SQL de backup.
+- Gere e compartilhe backups SQL usando o projeto `ERP.Backup` ou o comando `mysqldump`.
+- Inclua arquivos de migração (`Migrations` do EF Core) no repositório para que outros desenvolvedores possam atualizar o banco local com `dotnet ef database update`.
 
-Sistema desenvolvido para uso interno da churrascaria.
+### Como Restaurar Dados
+- Para restaurar um backup SQL, use o MySQL Workbench ou o comando:
+  ```bash
+  mysql -u DEV -p ERP_teste < backup.sql
+  ```
+- Para aplicar migrações do EF Core:
+  ```bash
+  dotnet ef database update -p src/ERP.Core/ERP.Core.csproj -s src/ERP.Launcher/ERP.Launcher.csproj
+  ```
+
+---
+
+## Interface Visual
+- Para editar a interface visual, abra o arquivo de formulário (`TelaPrincipal.cs`) no Visual Studio e use o designer do Windows Forms.
+- Adicione componentes arrastando da Toolbox para o formulário.
+- Edite propriedades e eventos conforme necessário.
+
+---
+
+## Estrutura do Projeto
+- `ERP.Launcher`: Interface gráfica inicial
+- `ERP.MainApp`: Menu principal (console)
+- `ERP.Core`: Modelos, contexto de dados, serviços
+- `ERP.TestApp`: Ambiente de testes
+- `ERP.Tests`: Testes unitários
+- `ERP.Backup`: Backup e restauração do banco
+
+---
+
+## Replicação de Alterações do Banco para DEV
+- Sempre que alterar modelos, crie uma nova migração do EF Core e faça commit da pasta `Migrations`.
+- Compartilhe scripts de backup SQL se necessário.
+- Não compartilhe arquivos binários do MySQL Server pelo repositório.
+
+---
+
+## Suporte
+- Consulte o README.md para instruções detalhadas.
+- Para dúvidas, abra uma issue no repositório.
+
+ChurrasTech ERP - Documentação atualizada por GitHub Copilot
