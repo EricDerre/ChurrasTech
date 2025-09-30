@@ -72,6 +72,11 @@ namespace ERP.Launcher
             await TestarConexaoBancoAsync();
         }
 
+        private void InitializeComponent()
+        {
+
+        }
+
         // Método para testar a conexão com o banco de dados MySQL
         private async Task TestarConexaoBancoAsync()
         {
