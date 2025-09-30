@@ -3,12 +3,15 @@ using ERP.Core.Models;
 
 namespace ERP.Core.Data;
 
+// Contexto principal do banco de dados do sistema ChurrasTech ERP
 public class ChurrasDbContext : DbContext
 {
+    // Construtor que recebe as opções de configuração do contexto
     public ChurrasDbContext(DbContextOptions<ChurrasDbContext> options) : base(options)
     {
     }
 
+    // Tabelas do banco de dados
     public DbSet<TipoProduto> TiposProduto { get; set; }
     public DbSet<UnidadeMedida> UnidadesMedida { get; set; }
     public DbSet<Produto> Produtos { get; set; }
@@ -20,11 +23,12 @@ public class ChurrasDbContext : DbContext
     public DbSet<Estoque> Estoques { get; set; }
     public DbSet<ItensUnitarioNoEstoque> ItensUnitarioNoEstoque { get; set; }
 
+    // Configuração dos relacionamentos e restrições do modelo
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
 
-        // Configure relationships
+        // Configura os relacionamentos entre entidades
         modelBuilder.Entity<Produto>()
             .HasOne(p => p.TipoProduto)
             .WithMany(tp => tp.Produtos)
@@ -85,7 +89,7 @@ public class ChurrasDbContext : DbContext
             .HasForeignKey(iue => iue.ProdutoId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        // Configure unique constraints
+        // Configura restrições de unicidade
         modelBuilder.Entity<Produto>()
             .HasIndex(p => p.Codigo)
             .IsUnique();
@@ -110,13 +114,14 @@ public class ChurrasDbContext : DbContext
             .HasIndex(c => c.NumeroCompra)
             .IsUnique();
 
-        // Seed initial data
+        // Adiciona dados iniciais (seed)
         SeedData(modelBuilder);
     }
 
+    // Método para popular o banco com dados iniciais
     private static void SeedData(ModelBuilder modelBuilder)
     {
-        // Seed TipoProduto
+        // Tipos de produto
         modelBuilder.Entity<TipoProduto>().HasData(
             new TipoProduto { Id = 1, Nome = "Carnes", Descricao = "Carnes para churrasco" },
             new TipoProduto { Id = 2, Nome = "Acompanhamentos", Descricao = "Acompanhamentos e guarnições" },
@@ -124,7 +129,7 @@ public class ChurrasDbContext : DbContext
             new TipoProduto { Id = 4, Nome = "Temperos", Descricao = "Temperos e condimentos" }
         );
 
-        // Seed UnidadeMedida
+        // Unidades de medida
         modelBuilder.Entity<UnidadeMedida>().HasData(
             new UnidadeMedida { Id = 1, Sigla = "KG", Nome = "Quilograma" },
             new UnidadeMedida { Id = 2, Sigla = "UN", Nome = "Unidade" },
@@ -132,7 +137,7 @@ public class ChurrasDbContext : DbContext
             new UnidadeMedida { Id = 4, Sigla = "G", Nome = "Grama" }
         );
 
-        // Seed FormaPagamento
+        // Formas de pagamento
         modelBuilder.Entity<FormaPagamento>().HasData(
             new FormaPagamento { Id = 1, Nome = "Dinheiro", AceitaTroco = true },
             new FormaPagamento { Id = 2, Nome = "Cartão de Débito", AceitaTroco = false },
@@ -140,7 +145,7 @@ public class ChurrasDbContext : DbContext
             new FormaPagamento { Id = 4, Nome = "PIX", AceitaTroco = false }
         );
 
-        // Seed Estoque
+        // Estoque principal
         modelBuilder.Entity<Estoque>().HasData(
             new Estoque { Id = 1, Nome = "Estoque Principal", Descricao = "Estoque principal da churrascaria", Localizacao = "Depósito 1" }
         );

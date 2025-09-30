@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{C4AD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.Backup", "scripts\ERP.Backup\ERP.Backup.csproj", "{A781BAFD-457F-4AFE-9526-C1B26668C538}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.Launcher", "src\ERP.Launcher\ERP.Launcher.csproj", "{0CF84ECD-2896-5FB1-1724-81A045F6D079}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -89,6 +91,18 @@ Global
 		{A781BAFD-457F-4AFE-9526-C1B26668C538}.Release|x64.Build.0 = Release|Any CPU
 		{A781BAFD-457F-4AFE-9526-C1B26668C538}.Release|x86.ActiveCfg = Release|Any CPU
 		{A781BAFD-457F-4AFE-9526-C1B26668C538}.Release|x86.Build.0 = Release|Any CPU
+		{0CF84ECD-2896-5FB1-1724-81A045F6D079}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CF84ECD-2896-5FB1-1724-81A045F6D079}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CF84ECD-2896-5FB1-1724-81A045F6D079}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0CF84ECD-2896-5FB1-1724-81A045F6D079}.Debug|x64.Build.0 = Debug|Any CPU
+		{0CF84ECD-2896-5FB1-1724-81A045F6D079}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0CF84ECD-2896-5FB1-1724-81A045F6D079}.Debug|x86.Build.0 = Debug|Any CPU
+		{0CF84ECD-2896-5FB1-1724-81A045F6D079}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CF84ECD-2896-5FB1-1724-81A045F6D079}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CF84ECD-2896-5FB1-1724-81A045F6D079}.Release|x64.ActiveCfg = Release|Any CPU
+		{0CF84ECD-2896-5FB1-1724-81A045F6D079}.Release|x64.Build.0 = Release|Any CPU
+		{0CF84ECD-2896-5FB1-1724-81A045F6D079}.Release|x86.ActiveCfg = Release|Any CPU
+		{0CF84ECD-2896-5FB1-1724-81A045F6D079}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
