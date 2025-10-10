@@ -6,17 +6,18 @@ using ERP.Core.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace ERP.Launcher
+    //teste Kennedy
 {
-    // Formulário principal da aplicação
+    // Formulï¿½rio principal da aplicaï¿½ï¿½o
     public class TelaPrincipal : Form
     {
-        // Label para mostrar o status da conexão com o banco
+        // Label para mostrar o status da conexï¿½o com o banco
         private Label rotuloStatus;
 
-        // Construtor do formulário
+        // Construtor do formulï¿½rio
         public TelaPrincipal()
         {
-            // Configurações iniciais do formulário
+            // Configuraï¿½ï¿½es iniciais do formulï¿½rio
             this.Text = "ChurrasTech Launcher";
             this.Size = new Size(400, 220);
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -31,10 +32,10 @@ namespace ERP.Launcher
             };
             this.Controls.Add(rotuloBoasVindas);
 
-            // Label para status da conexão
+            // Label para status da conexï¿½o
             rotuloStatus = new Label()
             {
-                Text = "Testando conexão com o banco...",
+                Text = "Testando conexï¿½o com o banco...",
                 Font = new Font("Segoe UI", 10, FontStyle.Regular),
                 AutoSize = true,
                 Location = new Point(80, 70),
@@ -42,17 +43,17 @@ namespace ERP.Launcher
             };
             this.Controls.Add(rotuloStatus);
 
-            // Botão "Entrar" (ainda não implementado)
+            // Botï¿½o "Entrar" (ainda nï¿½o implementado)
             var botaoEntrar = new Button()
             {
                 Text = "Entrar",
                 Location = new Point(80, 130),
                 Size = new Size(100, 40)
             };
-            // botaoEntrar.Click += (s, e) => { /* Aqui iniciará o ERP */ };
+            // botaoEntrar.Click += (s, e) => { /* Aqui iniciarï¿½ o ERP */ };
             this.Controls.Add(botaoEntrar);
 
-            // Botão "Sair" para fechar o programa
+            // Botï¿½o "Sair" para fechar o programa
             var botaoSair = new Button()
             {
                 Text = "Sair",
@@ -62,11 +63,11 @@ namespace ERP.Launcher
             botaoSair.Click += (s, e) => { this.Close(); };
             this.Controls.Add(botaoSair);
 
-            // Evento de carregamento do formulário
+            // Evento de carregamento do formulï¿½rio
             this.Load += TelaPrincipal_Load;
         }
 
-        // Evento chamado ao carregar o formulário
+        // Evento chamado ao carregar o formulï¿½rio
         private async void TelaPrincipal_Load(object? sender, EventArgs e)
         {
             await TestarConexaoBancoAsync();
@@ -77,22 +78,22 @@ namespace ERP.Launcher
 
         }
 
-        // Método para testar a conexão com o banco de dados MySQL
+        // Mï¿½todo para testar a conexï¿½o com o banco de dados MySQL
         private async Task TestarConexaoBancoAsync()
         {
             try
             {
-                // Configura as opções do DbContext para usar MySQL
+                // Configura as opï¿½ï¿½es do DbContext para usar MySQL
                 var opcoes = new DbContextOptionsBuilder<ChurrasDbContext>()
                     .UseMySql("server=localhost;database=ERP_teste;uid=DEV;pwd=unicid2025;", new MySqlServerVersion(new Version(8, 0, 36)))
                     .Options;
                 // Cria o contexto do banco
                 using var contexto = new ChurrasDbContext(opcoes);
-                // Tenta abrir e fechar a conexão
+                // Tenta abrir e fechar a conexï¿½o
                 await contexto.Database.OpenConnectionAsync();
                 await contexto.Database.CloseConnectionAsync();
                 // Se sucesso, mostra mensagem positiva
-                rotuloStatus.Text = "Conexão com o banco de dados OK";
+                rotuloStatus.Text = "Conexï¿½o com o banco de dados OK";
                 rotuloStatus.ForeColor = Color.Green;
             }
             catch (Exception excecao)
