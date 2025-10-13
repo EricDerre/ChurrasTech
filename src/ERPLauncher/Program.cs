@@ -10,12 +10,10 @@ namespace ERP.Launcher
         [STAThread]
         static void Main()
         {
-            // Habilita estilos visuais para os controles do Windows Forms
             Application.EnableVisualStyles();
-            // Define o modo de renderização de texto para compatibilidade
             Application.SetCompatibleTextRenderingDefault(false);
-            // Inicia o formulário principal da aplicação
-            Application.Run(new TelaPrincipal());
+            // Nenhuma tela inicial definida, pronto para abrir qualquer tela criada via designer
+            // Exemplo: Application.Run(new TelaCadastroProduto());
         }
     }
 }
