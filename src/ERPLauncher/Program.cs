@@ -12,8 +12,8 @@ namespace ERP.Launcher
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            // Nenhuma tela inicial definida, pronto para abrir qualquer tela criada via designer
-            // Exemplo: Application.Run(new TelaCadastroProduto());
+            // Abrir TelaHub por padrão (qualificado para evitar colisão com recurso gerado)
+            Application.Run(new ERPLauncher.TelaHub());
         }
     }
 }
