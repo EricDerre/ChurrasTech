@@ -1,7 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
   <ItemGroup>
-    <ProjectReference Include="..\ERP.Core\ERP.Core.csproj" />
+    <PackageReference Include="FontAwesome.Sharp" Version="6.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../ERPCore/ERPCore.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
